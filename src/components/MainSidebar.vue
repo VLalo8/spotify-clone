@@ -5,8 +5,7 @@
       <router-link to="/" draggable="false"><img alt="logo" src="../assets/SpotifyLogo.png" width="130" height="40"/></router-link>
     </div>
     <div class="menu">
-      <router-link to="/" class="submenu"><img v-if="homeMountValue" alt="home-icon" src="../assets/HomeIcon.svg" width="24" height="24">
-      <img v-else alt="home-icon" src="../assets/HomeIconBlank.svg" width="24" height="24"><span>Home</span></router-link>
+      <router-link to="/" class="submenu"><img alt="home-icon" :src="HomeIconSrc" width="24" height="24"></router-link>
       <router-link to="/" class="submenu"><img alt="home-icon" src="../assets/SearchIconBlank.svg" width="24" height="24"><span>Search</span></router-link>
       <router-link to="/" class="submenu"><img alt="home-icon" src="../assets/LibraryIcon.svg" width="24" height="24"><span>Your Library</span></router-link>
     </div>
@@ -25,12 +24,20 @@
 <script>
 
   export default {
-    props: ['homeMountValue'],
     data() {
       return {
       }
     },
     methods: {
+    },
+    computed: {
+      HomeIconSrc() {
+      if (this.$route.name === 'home') {
+        return require('../assets/HomeIcon.svg')
+      } else  {
+        return require('../assets/HomeIconBlank.svg')
+      }
+    }
     }
   }
 </script>
@@ -79,10 +86,6 @@
   flex-direction: row;
   align-items: center;
   flex-wrap: nowrap;
-}
-
-router-link-active {
-
 }
 
 img, a {
