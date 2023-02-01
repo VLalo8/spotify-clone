@@ -5,11 +5,13 @@
       <router-link to="/" draggable="false"><img alt="logo" src="../assets/SpotifyLogo.png" width="130" height="40"/></router-link>
     </div>
     <div class="menu">
-      <router-link to="/" class="submenu"><img alt="home-icon" :src="HomeIconSrc" width="24" height="24"></router-link>
+      <router-link to="/" class="submenu"><img alt="home-icon" :src="HomeIconSrc" width="24" height="24"><span>Home</span></router-link>
       <router-link to="/" class="submenu"><img alt="home-icon" src="../assets/SearchIconBlank.svg" width="24" height="24"><span>Search</span></router-link>
       <router-link to="/" class="submenu"><img alt="home-icon" src="../assets/LibraryIcon.svg" width="24" height="24"><span>Your Library</span></router-link>
     </div>
-    <router-link :to="{name: 'AboutView'}"><img alt="home-icon" src="../assets/LibraryIcon.svg"><span>Create Playlist</span></router-link>
+    <div class="menu">
+      <router-link :to="{name: 'AboutView'}" class="submenu"><img alt="home-icon" src="../assets/CreatePlaylist.svg" width="24" height="24"><span>Create Playlist</span></router-link>
+    </div>
     <div>Menu Item 1</div>
     <div>Menu Item 2</div>
     <div>Menu Item 3</div>
@@ -73,7 +75,7 @@
   align-items: flex-start;
   gap: 13px;
   width: 160px;
-  height: 40px;
+  min-height: 10px;
 }
 
 .menu span {
